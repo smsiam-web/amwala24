@@ -195,10 +195,7 @@ const AddOrder = ({ onClick }) => {
               };
               console.log(orderData);
               try {
-                db.collection("placeOrder").doc(orderID).set(orderData);
-
-                router.push("/admin/place-order/id=" + orderID);
-                
+                db.collection("placeOrder").doc(orderID).set(orderData);               
               } catch (error) {
                 notifications.show({
                   title: "Failed to place order",
@@ -208,6 +205,8 @@ const AddOrder = ({ onClick }) => {
                 setLoading(false);
                 setOrderResponse(null);
                 console.error("Error placing order:", error);
+              } finally {
+                router.push("/admin/place-order/id=" + orderID);
               }
             });
         } catch (error) {
