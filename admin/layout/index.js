@@ -10,11 +10,6 @@ const AdminWrapper = ({ children }) => {
   const [sidebarActive, setSidebarActive] = useState(true);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   router.push("/admin");
-  // }, []);
-
-
   return (
     <div className={styles.body + " " + styles.light}>
       <Navbar setSidebarActive={setSidebarActive} />

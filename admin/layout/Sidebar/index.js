@@ -5,9 +5,16 @@ import { menus } from "../../configs";
 import Link from "next/link";
 import Logo from "@/app/components/shared/Logo";
 import { RxCross1 } from "react-icons/rx";
+import { useSelector } from "react-redux";
+import { selectUser } from "@/app/redux/slices/authSlice";
+import { selectStaff } from "@/app/redux/slices/staffSlice";
 
 function Sidebar({ setSidebarActive }) {
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [limits, setLimits] = useState(false);
+  const [staff, setStaff] = useState([]);
+  const user = useSelector(selectUser);
+  const ourStaff = useSelector(selectStaff);
   const router = useRouter();
 
 useEffect(() => {
@@ -15,6 +22,14 @@ useEffect(() => {
     setScreenWidth(window.innerWidth)
 })
 }, []);
+
+useEffect(() => {
+  setLimits(user.staff_role === "Admin" || user.staff_role === "HR" || user.staff_role === "CEO")
+}, []);
+
+useEffect(() => {
+  setStaff(ourStaff);
+}, [ourStaff]);
 
 const toggleMenu = () => {
   if(screenWidth >= 768) return;

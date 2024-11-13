@@ -107,9 +107,9 @@ const OrderDetailsForm = () => {
         <Tabs color="violet" defaultValue="khejurGur" variant="pills">
           <Tabs.List>
             <Tabs.Tab value="khejurGur">খেজুরের গুড়</Tabs.Tab>
-            <Tabs.Tab value="mango">আম</Tabs.Tab>
             <Tabs.Tab value="honey">মধু</Tabs.Tab>
             <Tabs.Tab value="mosla">মশলা গুঁড়া</Tabs.Tab>
+            <Tabs.Tab value="mango">আম</Tabs.Tab>
             <Tabs.Tab value="others">অন্যান্য</Tabs.Tab>
           </Tabs.List>
 

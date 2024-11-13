@@ -6,6 +6,10 @@ import Image from "next/image";
 import { db } from "@/app/utils/firebase";
 import GeneratePdf from "../../../utils/GeneratePDF";
 import GenerateStick from "@/admin/utils/GenerateSticker";
+import Button from "../../shared/Button";
+import { AiOutlinePrinter } from "react-icons/ai";
+import { IoMdAdd } from "react-icons/io";
+import Link from "next/link";
 
 const GeneratePDF = dynamic(() => import("../../../utils/GeneratePDF"), {
   ssr: false,
@@ -33,8 +37,7 @@ const OrderDetails = ({ onClick, item }) => {
       height: 80,
     },
   });
-
-  console.log(singleOrder);
+  // console.log(singleOrder);
 
   return (
     <div className="">
@@ -248,7 +251,14 @@ const OrderDetails = ({ onClick, item }) => {
       </div>
 
       <GeneratePdf html={ref} disabled={true} onClick={() => jsxToPng(null)} />
-      <GenerateStick html={ref} />
+      <Link href={"/admin/place-order/add-new"}>
+        <Button
+          icon={<IoMdAdd size={26} />}
+          title="Add New"
+          className="bg-black font-medium hover:shadow-lg transition-all duration-300 text-white w-full h-14 text-md sm:text-lg "
+        />
+      </Link>
+      {/* <GenerateStick html={ref} /> */}
     </div>
   );
 };

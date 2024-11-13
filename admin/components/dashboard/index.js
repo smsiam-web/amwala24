@@ -4,30 +4,8 @@ import OrderOverview from "./OrderOverview";
 import Percentage from "./Percentage";
 import OrderTable from "../placeOrder/OrderTable";
 import LineChart from "./LineChart";
-import { db } from "@/app/utils/firebase";
-import { useDispatch, useSelector } from "react-redux";
-import { selectConfig, updateConfig } from "@/app/redux/slices/configSlice";
-
 
 const DashBoard = () => {
-
-  // const dispatch = useDispatch();
-  //   // Get config from firebase database
-  //   useEffect(() => {
-  //     const unSub = db.collection("config").onSnapshot((snap) => {
-  //       const configData = [];
-  //       snap.docs.map((doc) => {
-  //         configData.push(
-  //           doc.data()
-  //         )
-  //       });
-  //       dispatch(updateConfig(configData));
-  //     });
-  //     return () => {
-  //       unSub();
-  //     };
-  //   }, []);
-
   return (
     <main className="h-full overflow-y-auto">
       <div className=" grid mx-auto">
