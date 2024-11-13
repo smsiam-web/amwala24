@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectUser } from "@/app/redux/slices/authSlice";
 
 const UpdateStaffForm = () => {
-  const [limits, setLimits] = useState(true);
+  const [limits, setLimits] = useState(false);
   const user = useSelector(selectUser);
   useEffect(() => {
     setLimits((user.staff_role === "Admin" || user.staff_role === "HR" || user.staff_role === "CEO") && false || true)
@@ -34,20 +34,20 @@ const UpdateStaffForm = () => {
       />
       <div>
         <span className="lable">Company Name</span>
-        <FormInput disabled={limits} name="company_name" placeholder="Company Name" />
+        <FormInput name="company_name" placeholder="Company Name" />
       </div>
       <div>
         <span className="lable">Buisness Email</span>
-        <FormInput disabled={limits}  name="buissnes_email" placeholder="Buisness Email" />
+        <FormInput  name="buissnes_email" placeholder="Buisness Email" />
       </div>
       <div>
         <span className="lable">Contact Number</span>
-        <FormInput disabled={limits}  name="company_contact" placeholder="Phone number" />
+        <FormInput  name="company_contact" placeholder="Phone number" />
       </div>
       <div>
         <span className="lable">Address</span>
         <FormInput
-         disabled={limits} 
+         
           name="address"
           placeholder="Max 25 Char."
         />
@@ -55,15 +55,15 @@ const UpdateStaffForm = () => {
 
       <div>
         <span className="lable">Bulk Auth Key</span>
-        <FormInput  disabled={limits}  name="bulk_auth" type="password" placeholder="Auth key" items={null} />
+        <FormInput   name="bulk_auth" type="password" placeholder="Auth key" items={null} />
       </div>    
       <div>
         <span className="lable">SFC API Key</span>
-        <FormInput  disabled={limits}  name="sfc_api_key" type="password" placeholder="SFC API key" items={null} />
+        <FormInput   name="sfc_api_key" type="password" placeholder="SFC API key" items={null} />
       </div>    
       <div>
         <span className="lable">SFC Secret Key</span>
-        <FormInput  disabled={limits}  name="sfc_secret_key" type="password" placeholder="SFC Secret key" items={null} />
+        <FormInput   name="sfc_secret_key" type="password" placeholder="SFC Secret key" items={null} />
       </div>    
     </>
   );

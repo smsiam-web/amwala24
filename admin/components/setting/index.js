@@ -39,7 +39,7 @@ const Setting = () => {
         true) ||
         false
     );
-    setLastUpdate(ToDateAndTime(!!config && config[0]?.created_at || null));
+    !!config && setLastUpdate(ToDateAndTime(config[0]?.created_at));
   }, []);
 
   // const lastUpdate = ToDateAndTime(config && config[0]?.created_at || null);
